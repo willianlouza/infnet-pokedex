@@ -1,0 +1,35 @@
+html, body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background: #252525;
+    color: #fefefe;
+}
+main{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.card{
+    padding: 6px;
+    background: #0003;
+    max-width: 150px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#poke-icon{
+    max-width: 150px;
+}
+
+#poke-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
