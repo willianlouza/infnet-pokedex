@@ -11,7 +11,8 @@ form.addEventListener("submit", (e) => {
     const name = new FormData(e.target).get('name');
 
     getPokemon(name).then(pokemon => {
-        loadPokemon(transformedPokemon(pokemon))
+        const transformed = transformedPokemon(pokemon)
+        loadPokemon(transformed)
     });
 })
 
@@ -33,3 +34,30 @@ function transformedPokemon(data) {
     }
 }
 
+
+async function loadManyPokemons() {
+    for (let i = 1; i <= 20; i++) {
+        const pokemon = await getPokemon(i);
+        insertPokemon(transformedPokemon(pokemon));
+    }
+}
+
+function insertPokemon(pokemon) {
+    const container = document.createElement('div');
+    container.className = 'card';
+
+    const icon = new Image();
+    icon.id = "poke-icon";
+    icon.src = pokemon.icon;
+
+    container.appendChild(icon);
+
+    const text = document.createElement('h1');
+    text.innerHTML = pokemon.name;
+
+    container.appendChild(text);
+
+    document.getElementById('poke-grid').appendChild(container);
+}
+
+loadManyPokemons();
